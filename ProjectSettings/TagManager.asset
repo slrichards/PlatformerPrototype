@@ -2,13 +2,17 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Background
+  - Midground
+  - Foreground
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Background
   - Water
   - UI
   - 
@@ -41,3 +45,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 746937823
+    locked: 0
+  - name: Midground
+    uniqueID: 2259816189
+    locked: 0
+  - name: Foreground
+    uniqueID: 384316697
+    locked: 0
+  m_RenderingLayers:
+  - Default
+  - Background
+  - Midground
+  - Foreground
