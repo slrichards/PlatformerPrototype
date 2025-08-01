@@ -5,18 +5,24 @@ using UnityEngine.InputSystem;
 
 public class AnimatedController : MonoBehaviour
 {
+    private Rigidbody2D rb;
+    private PlayerInputController inputController;
+
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float sprintMultiplier = 1.5f;
-
+    private float horizontalInput;
     [Header("Jump Parameters")]
     [SerializeField] private float jumpForce = 10f;
-
-    private Rigidbody2D rb;
-    private PlayerInputController inputController;
-    private float horizontalInput;
     private bool isGrounded = false;
     private bool shouldJump = false;
+
+    [Header("Boomerang Settings")]
+    [SerializeField] private GameObject boomerangPrefab;
+    [SerializeField] private Transform playerTransform;
+    private bool previousThrowState = false;
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +43,12 @@ public class AnimatedController : MonoBehaviour
         {
             FlipSprite(horizontalInput);
         }
+
+        if(inputController.ThrowTriggered && !previousThrowState)
+        {
+            Boomerang.ThrowBoomerang(boomerangPrefab, playerTransform);
+        }
+        previousThrowState = inputController.ThrowTriggered;
     }
     private void FixedUpdate()
     {

@@ -14,6 +14,7 @@ public class PlayerInputController : MonoBehaviour
     //private InputAction lookAction;
     private InputAction jumpAction;
     private InputAction sprintAction;
+    private InputAction throwAction;
 
     [Header("Input Action Asset")]
     [SerializeField] private InputActionAsset playerControls;
@@ -26,11 +27,13 @@ public class PlayerInputController : MonoBehaviour
     //[SerializeField] private string look = "Look";
     [SerializeField] private string jump = "Jump";
     [SerializeField] private string sprint = "Sprint";
+    [SerializeField] private string throwActionName = "Throw";
 
     public Vector2 MoveInput { get; private set; }
     //public Vector2 LookInput { get; private set; }
     public bool JumpTriggered { get; private set; }
     public float SprintValue { get; private set; }
+    public bool ThrowTriggered { get; private set; }
 
     public static PlayerInputController Instance { get; private set; }
 
@@ -50,6 +53,7 @@ public class PlayerInputController : MonoBehaviour
         //lookAction = playerControls.FindActionMap(actionMapName).FindAction(look);
         jumpAction = playerControls.FindActionMap(actionMapName).FindAction(jump);
         sprintAction = playerControls.FindActionMap(actionMapName).FindAction(sprint);
+        throwAction = playerControls.FindActionMap(actionMapName).FindAction(throwActionName);
         RegisterInputActions();
     }
 
@@ -70,6 +74,9 @@ public class PlayerInputController : MonoBehaviour
         sprintAction.performed += context => SprintValue = context.ReadValue<float>();
         sprintAction.canceled += context => SprintValue = 0f;
 
+        throwAction.performed += context => ThrowTriggered = true;
+        throwAction.canceled += context => ThrowTriggered = false;
+
     }
     //enables an action
     private void OnEnable()
@@ -78,6 +85,7 @@ public class PlayerInputController : MonoBehaviour
         //lookAction.Enable();
         jumpAction.Enable();
         sprintAction.Enable();
+        throwAction.Enable();
     }
 
 
@@ -88,5 +96,6 @@ public class PlayerInputController : MonoBehaviour
         //lookAction.Disable();
         jumpAction.Disable();
         sprintAction.Disable();
+        throwAction.Disable();
     }
 }
