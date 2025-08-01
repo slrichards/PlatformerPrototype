@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: 679f87a524c65254ea05bfe7c8ee8178
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - boomerangPrefab: {fileID: 4617885910380690737, guid: 3e618e88545037448a79fa10b306f048, type: 3}
+  - playerTransform: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

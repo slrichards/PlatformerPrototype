@@ -21,6 +21,7 @@ public class AnimatedController : MonoBehaviour
     [SerializeField] private GameObject boomerangPrefab;
     [SerializeField] private Transform playerTransform;
     private bool previousThrowState = false;
+    private GameObject boomerangObject = null;
 
 
     private void Awake()
@@ -44,9 +45,19 @@ public class AnimatedController : MonoBehaviour
             FlipSprite(horizontalInput);
         }
 
-        if(inputController.ThrowTriggered && !previousThrowState)
+        if(inputController.ThrowTriggered && !previousThrowState && boomerangObject == null)
         {
-            Boomerang.ThrowBoomerang(boomerangPrefab, playerTransform);
+            Vector3 mouseScreenPos = Mouse.current.position.ReadValue();
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+            mouseWorldPos.z = 0f;
+
+            boomerangObject = Instantiate(boomerangPrefab, playerTransform.position, Quaternion.identity);
+            Boomerang boomerang = boomerangObject.GetComponent<Boomerang>();
+            boomerang.Initialize(mouseWorldPos, playerTransform);
+            if (boomerang == null)
+            {
+                boomerangObject = null;
+            }
         }
         previousThrowState = inputController.ThrowTriggered;
     }
