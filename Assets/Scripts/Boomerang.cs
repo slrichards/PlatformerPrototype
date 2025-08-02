@@ -7,6 +7,8 @@ public class Boomerang : MonoBehaviour
     [SerializeField] private float returnSpeed = 5f;
     [SerializeField] private float maxDistance = 15f;
     [SerializeField] private float rotationSpeed = 360f;
+    [SerializeField] 
+
     private Transform playerTransform;
     private Vector3 startPosition;
     private Vector3 targetPosition;
