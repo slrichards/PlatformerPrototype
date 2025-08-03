@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3080522110259254105}
   - component: {fileID: 6546135551425415831}
   - component: {fileID: 5304004682240109017}
+  - component: {fileID: -8772170572747659800}
   m_Layer: 0
   m_Name: Boomerang
   m_TagString: Untagged
@@ -111,8 +112,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 746937823
-  m_SortingLayer: 1
+  m_SortingLayerID: -2035151107
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 6946876648732156625, guid: 06c857e7f6259c845a6141de50bd0c9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -141,3 +142,31 @@ MonoBehaviour:
   returnSpeed: 10
   maxDistance: 15
   rotationSpeed: 360
+  damage: 1
+--- !u!50 &-8772170572747659800
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4617885910380690737}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

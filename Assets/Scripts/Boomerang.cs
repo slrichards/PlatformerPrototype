@@ -44,8 +44,16 @@ public class Boomerang : MonoBehaviour
             }
         }
     }
-
-    public float GetDamage() { return damage; }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject enemyObj = collision.gameObject;
+        EnemyController enemy = enemyObj.GetComponent<EnemyController>();
+        if (enemyObj.CompareTag("Enemy"))
+        {
+            enemy.TakeDamage(this.damage);
+            isReturning = true;
+        }
+    }
 
 
     /*    public static void ThrowBoomerang(GameObject boomerangPrefab, Transform playerTransform)

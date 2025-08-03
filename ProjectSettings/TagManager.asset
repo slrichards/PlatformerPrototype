@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - MainMenu
   - SettingsMenu
+  - Enemy
   layers:
   - Default
   - TransparentFX

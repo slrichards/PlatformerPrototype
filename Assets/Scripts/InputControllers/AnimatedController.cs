@@ -67,7 +67,7 @@ public class AnimatedController : MonoBehaviour
 
         if(playerHealth <= 0)
         {
-            Object.Destroy(this);
+            Destroy(gameObject);
         }
     }
     private void FixedUpdate()
