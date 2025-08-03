@@ -1,7 +1,8 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class AnimatedController : MonoBehaviour
 {
@@ -67,7 +68,12 @@ public class AnimatedController : MonoBehaviour
 
         if(playerHealth <= 0)
         {
+<<<<<<< HEAD
             Destroy(gameObject);
+=======
+            //Destroy(gameObject);
+            SceneManager.LoadScene("Menu");
+>>>>>>> 699b1f1b8b2bdc3404af321c76218e324522a140
         }
     }
     private void FixedUpdate()
