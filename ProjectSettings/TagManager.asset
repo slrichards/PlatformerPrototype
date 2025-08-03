@@ -8,6 +8,8 @@ TagManager:
   - Midground
   - Foreground
   - Ground
+  - MainMenu
+  - SettingsMenu
   layers:
   - Default
   - TransparentFX
