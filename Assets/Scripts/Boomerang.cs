@@ -7,13 +7,12 @@ public class Boomerang : MonoBehaviour
     [SerializeField] private float returnSpeed = 5f;
     [SerializeField] private float maxDistance = 15f;
     [SerializeField] private float rotationSpeed = 360f;
-    [SerializeField] 
+    [SerializeField] private float damage = 1f;
 
     private Transform playerTransform;
     private Vector3 startPosition;
     private Vector3 targetPosition;
     private bool isReturning = false;
-
     public void Initialize(Vector3 targetPosition, Transform playerTransform)
     {
         this.targetPosition = targetPosition;
@@ -45,6 +44,9 @@ public class Boomerang : MonoBehaviour
             }
         }
     }
+
+    public float GetDamage() { return damage; }
+
 
     /*    public static void ThrowBoomerang(GameObject boomerangPrefab, Transform playerTransform)
         {

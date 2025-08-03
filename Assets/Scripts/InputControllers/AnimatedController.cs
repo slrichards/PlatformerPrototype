@@ -16,12 +16,16 @@ public class AnimatedController : MonoBehaviour
     [SerializeField] private float jumpForce = 10f;
     private bool isGrounded = false;
     private bool shouldJump = false;
+    [Header("Player Settings")]
+    [SerializeField] private float playerHealth = 10f;
 
     [Header("Boomerang Settings")]
     [SerializeField] private GameObject boomerangPrefab;
     [SerializeField] private Transform playerTransform;
     private bool previousThrowState = false;
     private GameObject boomerangObject = null;
+
+    private int kills = 0;
 
 
     private void Awake()
@@ -60,6 +64,11 @@ public class AnimatedController : MonoBehaviour
             }
         }
         previousThrowState = inputController.ThrowTriggered;
+
+        if(playerHealth <= 0)
+        {
+            Object.Destroy(this);
+        }
     }
     private void FixedUpdate()
     {
@@ -100,4 +109,9 @@ public class AnimatedController : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
     }
+    public void DoDamage(float damage)
+    {
+        this.playerHealth = this.playerHealth - damage;
+    }
+    public void IncreaseKills() { this.kills++; }
 }
